@@ -17,7 +17,7 @@ int main() {
         aprendiendo = false;
 
         for (int cont = 0; cont <= 3; cont++) {
-            // Funcion fitness, esta funcion es la encargada del aprendizaje
+            // Funcion fitness, esta funcion es la encargada del aprendizaje, pesos[2] no es relevante en este ejercicio,es el peso umbral
             double salidaReal = datos[cont][0] * pesos[0] + datos[cont][1] * pesos[1] + pesos[2]; // Calcula la salida real
 
             if (salidaReal > 0) // Si la salida es igual o mayor a 1 la ajusta a 1
@@ -36,7 +36,7 @@ int main() {
     }
 
     for (int cont = 0; cont <= 3; cont++) { // Muestra el perceptron con la tabla AND aprendida
-        double salidaReal = datos[cont][0] * pesos[0] + datos[cont][1] * pesos[1] + pesos[2];
+        double salidaReal = datos[cont][0] * pesos[0] + datos[cont][1] * pesos[1] + pesos[2];	// Fitness
 
         if (salidaReal > 0)
             salidaEntera = 1;
