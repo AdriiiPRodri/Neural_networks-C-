@@ -13,23 +13,24 @@ int main() {
     bool aprendiendo = true;
     int salidaEntera;
 
-    while (aprendiendo) { // Hasta que aprenda la tabla AND
+    while (aprendiendo) { // Mientras no la aprenda
         aprendiendo = false;
 
         for (int cont = 0; cont <= 3; cont++) {
-            // Funcion fitness
+            // Funcion fitness, esta funcion es la encargada del aprendizaje
             double salidaReal = datos[cont][0] * pesos[0] + datos[cont][1] * pesos[1] + pesos[2]; // Calcula la salida real
 
-            if (salidaReal > 0)
+            if (salidaReal > 0) // Si la salida es igual o mayor a 1 la ajusta a 1
                 salidaEntera = 1;
-            else
-                salidaEntera = 0; // Transforma a valores 0 o 1
+            else // En otro caso la ajusta a 0
+                salidaEntera = 0;
 
             if (salidaEntera != datos[cont][2]) { // Si la salida no coincide con lo esperado, cambia los pesos al azar
                 pesos[0] = rand() - rand();
                 pesos[1] = rand() - rand();
                 pesos[2] = rand() - rand();
-                aprendiendo = true; // Y sigue buscando
+                aprendiendo = true; // Continua buscando los pesos adecuados hasta dar con los que nos sirven para
+                                    // simular la tabla de verdad AND
             }
         }
     }
