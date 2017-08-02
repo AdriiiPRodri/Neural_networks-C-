@@ -12,9 +12,11 @@ int main() {
     int pesos[] = {rand(), rand(), rand()}; // Inicia los pesos al azar
     bool aprendiendo = true;
     int salidaEntera;
+    int iteraciones = 0;
 
     while (aprendiendo) { // Mientras no la aprenda
         aprendiendo = false;
+        iteraciones++;
 
         for (int cont = 0; cont <= 3; cont++) {
             // Funcion fitness, esta funcion es la encargada del aprendizaje, pesos[2] no es relevante en este ejercicio,es el peso umbral
@@ -33,7 +35,22 @@ int main() {
                                     // simular la tabla de verdad AND
             }
         }
+
+        if(aprendiendo){
+            cout << "*****************************************************************************************" << endl;
+            cout << "\tIteracion no valida, sigue aprendiendo..." << endl;
+            cout << "\t---> Peso 1 = " << pesos[0] << "\tPeso 2 = " << pesos[1] << "\tPeso 3 = " << pesos[2] << "\n" << endl;
+
+            for(int cont = 0; cont <= 3; cont++){
+                cout << "\t\tEntrada = " << datos[cont][0] << " && " << datos[cont][1] << endl;
+                cout << "\t\tSalida esperada = " << datos[cont][2] << "\tObtenida = " << salidaEntera << "\n" << endl;
+            }
+        }
     }
+
+    cout << "*****************************************************************************************" << endl;
+    cout << "\tIteraciones hasta aprender = " << iteraciones << endl;
+    cout << "\t---> Peso 1 = " << pesos[0] << "\tPeso 2 = " << pesos[1] << "\tPeso 3 = " << pesos[2] << endl;
 
     for (int cont = 0; cont <= 3; cont++) { // Muestra el perceptron con la tabla AND aprendida
         double salidaReal = datos[cont][0] * pesos[0] + datos[cont][1] * pesos[1] + pesos[2];	// Fitness
@@ -43,7 +60,7 @@ int main() {
         else
             salidaEntera = 0;
 
-        cout << "Entradas: " << datos[cont][0] << " y " << datos[cont][1] << " perceptron: " << salidaEntera << endl;
+        cout << "\t\tEntrada = " << datos[cont][0] << " && " << datos[cont][1] << "\tObtenida = " << salidaEntera << endl;
     }
 
     return 0;
