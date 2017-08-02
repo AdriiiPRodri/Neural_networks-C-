@@ -9,7 +9,11 @@ int main() {
         { 0, 1, 0},
         { 0, 0, 0}
     }; // Tabla de verdad AND
-    int pesos[] = {rand(), rand(), rand()}; // Inicia los pesos al azar
+
+    srand(time(NULL));      // Generamos una semilla para que nuestros aleatorios cambien en cada ejecucion de nuestro programa
+    int limite = 10001;     // Este es el limite de generacion de los numeros aleatorios
+
+    int pesos[] = {rand() % limite, rand() % limite, rand() % limite}; // Inicia los pesos al azar
     bool aprendiendo = true;
     int salidaEntera;
     int iteraciones = 0;
@@ -28,9 +32,9 @@ int main() {
                 salidaEntera = 0;
 
             if (salidaEntera != datos[cont][2]) { // Si la salida no coincide con lo esperado, cambia los pesos al azar
-                pesos[0] = rand() - rand();
-                pesos[1] = rand() - rand();
-                pesos[2] = rand() - rand();
+                pesos[0] = rand() % limite - rand() % limite;
+                pesos[1] = rand() % limite - rand() % limite;
+                pesos[2] = rand() % limite - rand() % limite;
                 aprendiendo = true; // Continua buscando los pesos adecuados hasta dar con los que nos sirven para
                                     // simular la tabla de verdad AND
             }
