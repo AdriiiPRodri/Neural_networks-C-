@@ -1,2 +1,2 @@
-# Neural_networks-C-
+# Neural_networks-C++
 Practice

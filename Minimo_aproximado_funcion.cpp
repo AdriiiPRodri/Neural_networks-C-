@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cmath>
 
+// IMPORTANTE: CON ESTE METODO ES POSIBLE EXPLORAR UN MINIMO LOCAL Y QUEDARSE EN ESTE, POR LO QUE NO SE ASEGURA ENCONTRAR EL MINIMO GLOBAL
+
 using namespace std;
 
 double Ecuacion(const double& x){
